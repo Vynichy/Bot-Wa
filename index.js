@@ -6,7 +6,13 @@ const app = express()
 const port = process.env.PORT || 3000
 
 const client = new Client({
-    authStrategy: new LocalAuth({ clientId: "xaveny" })
+    authStrategy: new LocalAuth({ clientId: "xaveny" }),
+    puppeteer: {
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+        ]
+    }
 })
 
 const contact = ['6289613645898', '6283842220421']
